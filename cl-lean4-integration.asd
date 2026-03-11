@@ -7,7 +7,7 @@
   :name "cl-lean4-integration"
   :description "Common Lisp to Lean4 theorem prover integration"
   :version "1.0.0"
-  :author "CLPIC Project"
+  :author "Parkian Company LLC"
   :license "MIT"
   :depends-on ()  ; Pure Common Lisp - no external dependencies
   :serial t
