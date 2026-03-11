@@ -1,3 +1,6 @@
+;;;; Copyright (c) 2024-2026 Parkian Company LLC. All rights reserved.
+;;;; SPDX-License-Identifier: BSD-3-Clause
+
 ;;;; cl-lean4-integration - Export (CL -> Lean4)
 ;;;;
 ;;;; Functions for translating Common Lisp specifications and code to Lean4.
