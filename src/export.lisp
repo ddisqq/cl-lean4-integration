@@ -61,7 +61,7 @@
     (when lambda-list
       (format output " ~{(~A : Any)~^ ~}"
               (mapcar #'lisp-name-to-lean4
-                      (remove-if (lambda (x) (member x lambda-list-keywords))
+                      (remove-if (lambda (x) (member x *lambda-list-keyword-symbols*))
                                  lambda-list))))
 
     (format output " : Any := sorry~%")
@@ -434,13 +434,16 @@
 ;;; Helper Functions
 ;;; ============================================================================
 
-(defparameter lambda-list-keywords
+(defparameter *lambda-list-keyword-symbols*
   '(&optional &rest &key &allow-other-keys &aux &body &environment &whole)
   "Lambda list keywords to filter out.")
 
 (defun function-lambda-list (fn-name)
   "Get the lambda list of a function."
   (handler-case
-      #+sbcl (sb-introspect:function-lambda-list (fdefinition fn-name))
+      #+sbcl (progn
+               (require :sb-introspect)
+               (funcall (find-symbol "FUNCTION-LAMBDA-LIST" "SB-INTROSPECT")
+                        (fdefinition fn-name)))
       #-sbcl nil
     (error () nil)))

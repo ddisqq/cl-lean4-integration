@@ -96,7 +96,8 @@
 ;;; ============================================================================
 
 (defstruct (lean4-type (:constructor %make-lean4-type)
-                       (:conc-name l4type-))
+                       (:conc-name l4type-)
+                       (:predicate nil))  ; We define our own lean4-type-p
   "Representation of a Lean4 type.
 
    Slots:
@@ -214,7 +215,8 @@
 ;;; Lean4 Bridge
 ;;; ============================================================================
 
-(defstruct (lean4-bridge (:constructor %make-lean4-bridge))
+(defstruct (lean4-bridge (:constructor %make-lean4-bridge)
+                         (:predicate nil))  ; We define our own lean4-bridge-p
   "Bridge to Lean4 theorem prover.
 
    Slots:
