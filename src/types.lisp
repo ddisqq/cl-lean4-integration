@@ -72,7 +72,7 @@
    - CONFIDENCE: Float 0.0-1.0 indicating spec confidence
    - SOURCE: Keyword indicating origin (:manual :inferred :mined)
    - METADATA: Additional properties as alist"
-  (name nil :type (or symbol null))
+  (name nil :type (or symbol string null))
   (function nil :type (or symbol null))
   (preconditions nil :type list)
   (postconditions nil :type list)
